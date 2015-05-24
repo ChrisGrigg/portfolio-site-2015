@@ -1,0 +1,75 @@
+@mixin media-query($media-list) {
+  @each $media in $media-list {
+    @if $media == large {
+      @media (min-width: $medium-width + 1) and (min-height: $medium-height + 1)
+      { @content; }
+    }
+    @else if $media == medium {
+      @media (min-width: $small-width + 1) and (min-height: $small-height + 1)
+      { @content; }
+    }
+    @else if($media == medium-portrait) {
+      @media (min-width: $small-width + 1) and (min-height: $small-height + 1) and (orientation: portrait)
+      { @content; }
+    }
+    @else if($media == small-medium) {
+      @media (min-width: $small-width + 1) and (max-width: $small-medium-width)
+      { @content; }
+    }
+    @else if $media == small {
+      @media (max-width: $small-width),
+             (max-height: $small-height) { @content; }
+    }
+    @else if $media == small-portrait {
+      @media (max-width: $small-width) and (orientation: portrait),
+             (max-height: $small-height) and (orientation: portrait)
+      { @content; }
+    }
+    @else if($media == portrait) {
+      @media (orientation: portrait) { @content; }
+    }
+  }
+}
+
+@mixin shadow {
+  box-shadow: 3px 3px 3px #666666;
+}
+
+@mixin paper {
+  background-size: 338px 400px;
+  @include shadow;
+}
+
+@mixin light-paper {
+  @include paper;
+  background-image: url("../assets/imgs/paper.png");
+}
+
+@mixin dark-paper {
+  @include paper;
+  background-image: url("../assets/imgs/paper-dark.png");
+}
+
+@mixin black-paper {
+  @include light-paper;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+@mixin purple-paper {
+  @include light-paper;
+  background-color: #400040;
+  color: #ffffff;
+}
+
+@mixin green-paper {
+  @include dark-paper;
+  background-color: #a9c3ba;
+  color: #333333;
+}
+
+@mixin white-paper {
+  @include dark-paper;
+  background-color: #ffffff;
+  color: #333333;
+}

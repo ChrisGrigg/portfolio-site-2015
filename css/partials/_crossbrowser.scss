@@ -1,0 +1,45 @@
+@mixin cross-browser-animation($animation-val) {
+  -webkit-animation: $animation-val;
+  -moz-animation: $animation-val;
+  -o-animation: $animation-val;
+  -ms-animation: $animation-val;
+  animation: $animation-val;
+}
+
+@mixin cross-browser-animation-fill-mode($val) {
+  -webkit-animation-fill-mode: $val;
+  -moz-animation-fill-mode: $val;
+  -o-animation-fill-mode: $val;
+  -ms-animation-fill-mode: $val;
+  animation-fill-mode: $val;
+}
+
+@mixin cross-browser-keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin cross-browser-calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin cross-browser-transform($transformation) {
+
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  -ms-transform: $transformation;
+  -o-transform: $transformation;
+  transform: $transformation;
+}

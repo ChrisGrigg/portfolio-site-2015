@@ -1,0 +1,176 @@
+#work {
+  text-align: center;
+
+  h2 {
+    text-align: left;
+  }
+
+  .workItem {
+    @include black-paper;
+    display: inline-block;
+    width: 9em;
+    margin: 0.5em;
+    text-align: center;
+    height: 20em;
+    position: relative;
+    cursor: pointer;
+
+    h3 {
+      font-size: 1em;
+      color: #ffffff;
+    }
+
+    .workItemMain {
+      float: left;
+      padding: 0.5em;
+      display: block;
+
+      p {
+        font-size: 0.8em;
+      }
+
+      img {
+        width: 8em;
+        height: 8em;
+      }
+
+      a {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        left: 0;
+      }
+    }
+  }
+
+  .workItemDesc {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 600;
+
+    @include cross-browser-calc(height, "100% - 5em");
+    @include media-query(large medium) { top: 6.25em; }
+    @include media-query(small-medium) { top: 8.5em; }
+    @include media-query(small) { top: 6em; @include cross-browser-calc(height, "95% - 5.2em"); }
+    @include media-query(medium-portrait) { top: 9.5em; }
+    @include media-query(small-portrait) { top: 6.25em; @include cross-browser-calc(height, "95% - 5.1em"); }
+
+    &.fade-in {
+      @include cross-browser-animation(fadeIn 0.5s ease-out);
+      @include cross-browser-animation-fill-mode(forwards);
+    }
+    &.fade-out {
+      @include cross-browser-animation(fadeOut 0.5s ease-out);
+      @include cross-browser-animation-fill-mode(forwards);
+    }
+
+    .content {
+      @include black-paper;
+      width: 60%;
+      height: 20em;
+      max-height: 75%;
+      margin-top: 5%;
+      margin-left: 20%;
+      padding: 1em;
+      text-align: left;
+
+      @include media-query(portrait small small-medium) {
+        width: 80%;
+        margin-left: 10%;
+      }
+       @include media-query(small small-medium) {
+         max-height: 85%;
+      }
+       @include media-query(small-portrait) {
+        height: 30em;
+      }
+
+      .details {
+        margin-left: 1em;
+        @include media-query(small) { margin-left: 0.3em; }
+        width: 20%;
+        float: left;
+
+        @include media-query(small-portrait) {
+          float: none;
+          width: 100%;
+        }
+
+        img {
+          width: auto;
+          height: auto;
+          max-width: 6em;
+          max-height: 6em;
+        }
+
+        .links {
+          display: block;
+          clear: both;
+          text-align: center;
+          padding-top: 1em;
+          @include media-query(small) { padding-top: 0.5em; }
+          @include media-query(small-portrait) {
+            clear: none;
+            float: right;
+            width: 40%;
+            margin: 0 10% 0 0;
+            padding: 0;
+          }
+        }
+      }
+
+      .text-content {
+        float: right;
+        height: 100%;
+        width: 70%;
+        margin-right: 5%;
+        padding: 0 0.5em;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 0.9em;
+        line-height: 0.6em;
+
+        @include media-query(small-portrait) {
+          width: 100%;
+          max-height: 23em;
+          float: none;
+          margin-top: 0.5em;
+          height: 60%;
+        }
+      }
+    }
+
+    button {
+      position: absolute;
+      @include media-query(portrait) { right: 12%; top: 5%; }
+      @include media-query(medium) { top: 7%; right: 20%; }
+      @include media-query(large) { top: 13%; right: 20%; }
+      @include media-query(small-medium) { top: 8%; right: 10%; }
+      @include media-query(medium-portrait) { top: 5%; right: 10%; }
+      @include media-query(small) { right: 10%; top: 7%; }
+      @include media-query(small-portrait) { right: 10%; top: 3%; }
+      color: #ffffff;
+      font-family: 'Eager Naturalist';
+      font-size: 1.5em;
+      padding: 0.5em;
+
+      &:hover {
+        color: #cccccc;
+      }
+    }
+  }
+}
+
+@include cross-browser-keyframes(fadeIn) {
+  from { background-color: rgba(255,255,255,0); }
+  to { background-color: rgba(255,255,255,0.5); }
+}
+
+@include cross-browser-keyframes(fadeOut) {
+  from { background-color: rgba(255,255,255,0.5); }
+  to { background-color: rgba(255,255,255,0); }
+}
+
+

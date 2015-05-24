@@ -1,0 +1,21 @@
+#preloader {
+  width: 100%;
+  height: 100%;
+
+  .content {
+
+    width: 8em;
+    height: 8em;
+    margin: 15% auto;
+
+    h2 {
+      color: #bb2244;
+      text-align: center;
+    }
+    img {
+      width: 57px;
+      height: 57px;
+      margin-left: 2.7em;
+    }
+  }
+}

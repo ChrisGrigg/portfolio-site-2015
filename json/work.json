@@ -1,0 +1,165 @@
+{
+  "data": [
+    {
+	  "id": "cutie-fruits",
+      "name": "Cutie Fruits",
+      "imgs": {
+        "thumb": "cutie.png"
+      },
+	  "tag": "HTML5, JavaScript, CSS, Pixi, Greensock, Knockout, CreateJS, jQuery, Modernizr",
+      "description": "Cutie Fruits is an HTML5 slot game with game play inspired by the Candy Crush Saga game developed by King.com Ltd. Unlike a standard slot game with reels, this game has icons falling into the board and exploding if patterns of 3 or more are matched, and there are special powerup icons which each perform some exciting function. I took over as the lead developer on this game mid-way through the project, and was in charge of bringing this game to completion - finishing off the functionality of different features, adding animations and optimising performance for release. This game used the same underlying structure as the other HTML slots I worked on at Spacebar Media Ltd, but it had a lot of differences due to its game play and so a lot of new code needed to be designed and built to solve these new problems. I used a library called Pixi for rendering the animation and I learned a lot about optimising JavaScript whilst working on this project.",
+      "links": [
+        
+      ]
+    },
+
+    {
+	  "id": "html5-bingo",
+      "name": "HTML5 Bingo",
+      "imgs": {
+        "thumb": "bingo-extra.png"
+      },
+	  "tag": "HTML5, JavaScript, CSS3, SCSS, Grunt, Foundation, Knockout, Greensock, jQuery, Modernizr",
+      "description": "About a year after I joined Spacebar Media Ltd the company made the decision to make the transition from Flash to HTML5 for its bingo clients. I assisted the lead developer on this project, and gained experience with HTML5, jQuery, Greensock JS, Knockout JS, SCSS & Grunt. In Feb 2015, the company launched a new HTML-only site called Bingo Extra - I took over as the lead developer on this project for about 2 months when the Technical Lead became ill. This was a great challenge and taught me a lot about JavaScript and HTML development, and I gained experience with the responsive design framework Foundation.",
+      "links": [
+        {
+          "name": "View Bingo Extra",
+          "url": "http://www.bingoextra.com"
+        },
+		{
+          "name": "View Kitty Bingo HTML5",
+          "url": "https://www.kittybingo.com/mobile/"
+        }
+      ]
+    },
+
+    {
+	  "id":  "sonos",
+      "name": "Sonos e-Learning",
+      "imgs": {
+        "thumb": "sonos.png"
+      },
+	  "tag": "HTML5, JavaScript, SCSS, Gulp, Greensock, jQuery",
+      "description": "The Creative Engine Ltd hired me as an HTML5 contractor to help finish this project in time to meet a deadline. This e-Learning web app was designed to teach users how to use the Sonos system and was to function on and offline. It involved different videos with overlaid menus, and used Node, Gulp, SCSS, Greensock & jQuery. My role was mainly to assist in the final rounds of bug fixing.",
+      "links": [
+        
+      ]
+    },
+
+    {
+	  "id": "pera",
+      "name": "Pera",
+      "imgs": {
+        "thumb": "pera.png"
+      },
+	  "tag": "HTML5, JavaScript, SCSS, Gulp, Greensock, jQuery",
+      "description": "This was another project that The Creative Engine Ltd hired me as an HTML5 developer to help finish. Pera is a quiz that the Saudi Arabian government use as a training tool for their employees, and was a fairly simple project with multiple choice answers which would play video and audio. My role was to assist in the final rounds of bug fixing.",
+      "links": [
+        
+      ]
+    },
+	
+	
+
+    {
+	  "id": "html5-casino",
+      "name": "HTML5 Casino Games",
+      "imgs": {
+        "thumb": "dice.png"
+      },
+	  "tag": "HTML5, JavaScript, CSS, Greensock, jQuery, Modernizr, Photoshop, Audition",
+      "description": "I developed 2 new HTML5 casino games for Spacebar Media Ltd - Playtime Dice, a game where the player bets on the outcome of rolling 2 dice, and Heather's Wheel, a big wheel type game. Playtime Dice was initially outsourced to another company but the results were so poor that Spacebar eventually acquired the code and passed it on to me to bring up to standard. This was a big challange as the code was so difficult to work with, but I did I learn a lot about CSS. I also sourced all the audio music & FX for this game, editing in Adobe Audition, and I edited assets in Adobe Photoshop. Heather's Wheel was built upon the base slot framework developed for the HTML5 slots at Spacebar, but had several unique and custom features due to it being a wheel game rather than a standard slot.",
+      "links": [
+        {
+          "name": "View Playtime Dice",
+          "url": "https://www.bingoextra.com/table-card/"
+        }
+      ]
+    },
+
+    {
+	  "id": "flash-html5-conversions",
+      "name": "Flash To HTML5 Slot Conversions",
+      "imgs": {
+        "thumb": "lucky-slot.png"
+      },
+	  "tag": "HTML5, JavaScript, CSS, CreateJS, Knockout, Greensock, jQuery, Modernizr, Photoshop, Audition",
+      "description": "I took 2 Flash slots that had been developed by Spacebar Media Ltd - Lucky Pants & Kitty Bingo slots - and converted them into HTML5 versions. Using the WebStorm IDE and several JS libraries such as jQuery, Greensock & Knockout I built upon another developer's base code to create these slots, adding the new functionality specific to the slots and updating and improving certain features in the base code.",
+      "links": [
+        {
+          "name": "View HTML5 Games",
+          "url": "https://www.luckypantsbingo.com/mobile/games/"
+        }
+      ]
+    },
+
+    {
+	  "id": "intel-ipos",
+      "name": "Intel IPOS",
+      "imgs": {
+        "thumb": "intel.png"
+      },
+	  "tag": "AS3, Robot Legs, XML",
+      "description": "I have worked as an AS3 contractor for The Creative Engine Ltd several times as they finished a stage of their project for Intel. This project was an IPOS (Intelligent Point of Sale) system, which is installed on display laptops and computers that run on an Intel processor in multiple countries around the world. It shows users what they can expect if they buy that computer, running videos, etc. and is available in many languages. I assisted in the final features and bug fixes, as well as working on the customisation tool which the stores use to personalise the IPOS system's layout and content.",
+      "links": [
+        {
+          "name": "View PDF Guide to IPOS",
+          "url": "http://cache-www.intel.com/cd/00/00/47/44/474407_474407.pdf"
+        }
+      ]
+    },
+	
+    {
+	  "id": "flash-bingo",
+      "name": "Flash Bingo",
+      "imgs": {
+        "thumb": "kitty-bingo.png"
+      },
+	  "tag": "AS3, Flash Professional, Dawn, Greensock, SmartFox",
+      "description": "When I joined Spacebar Media Ltd in May 2012 I worked as one of two Flash developers on their bingo clients - Kitty Bingo and Lucky Pants Bingo - before progressing to be the main developer. I developed using Flash Develop, adding new functionality and games, and implementing improvements on existing features, and also used Adobe Flash Profressional to work with assets provided by design. I used a dependency injection framework called Dawn and made use of the Greensock libraries. The communication between the server and the client occurred via SmartFox, a socket server. As performance was extremely important, I was very focused on creating code that was optimised for CPU and memory usage.",
+      "links": [
+        {
+          "name": "Kitty Bingo",
+          "url": "https://www.kittybingo.com"
+        },
+        {
+          "name": "Lucky Pants Bingo",
+          "url": "https://www.luckypantsbingo.com"
+        }
+      ]
+    },
+
+    {
+	  "id": "flash-slots",
+      "name": "Flash Slots",
+      "imgs": {
+        "thumb": "lady-luck.png"
+      },
+	  "tag": "AS3, Flash Professional, Photoshop, Audition, Dawn, Greensock, SmartFox",
+      "description": "I developed 3 Flash slots for Spacebar Media Ltd from start to end - Groovy Revolutions, Wired Birds and Lady Luck Deluxe - and mini game and progressive versions of these, as well as a wheel game called Heather's Wheel. The code structure of Spacebar's Flash slots was heavily based on the bingo clients' code, making use of Dawn, SmartFox Server and Greensock. Performance was even more important for these games, as well as the file size. I also worked on the sound using Adobe Audition and made small asset changes in Adobe Photoshop.",
+      "links": [
+        {
+          "name": "View Flash Games",
+          "url": "https://www.bingoextra.com/games"
+        }
+      ]
+    },
+
+    {
+	  "id": "socialsafe",
+      "name": "SocialSafe DigiMe",
+      "imgs": {
+        "thumb": "socialsafe.png"
+      },
+	  "tag": "AS3, Flex 3/4, MXML, AIR, SQLite",
+      "description": "After graduating from university I was employed by iBundle Ltd to work on their project SocialSafe (now renamed DigiMe). This is an Adobe AIR application built using the Flex framework in Adobe Flash Builder 4.5 and so my experience was in ActionScript 3.0, MXML and Flex, and, as the software utilises a database through AIR's capabilities, SQLite. The software's purpose is to retrieve data from social networks and then store it onto the user's local system and provide a nice UI for viewing, searching and exporting the data. This means I am very familiar with different APIs - Facebook, Twitter, Google, Viadeo and LinkedIn.",
+      "links": [
+        {
+          "name": "View SocialSafe",
+          "url": "http://www.socialsafe.net"
+        }
+      ]
+    }
+
+  ]
+}

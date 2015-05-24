@@ -1,0 +1,92 @@
+header {
+  width: 100%;
+  background-color: #a9c3ba;
+  background: -moz-linear-gradient(top, rgba(169,195,186,1) 0%, rgba(137,179,154,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(169,195,186,1)), color-stop(100%, rgba(137,179,154,1)));
+  background: -webkit-linear-gradient(top, rgba(169,195,186,1) 0%, rgba(137,179,154,1) 100%);
+  background: -o-linear-gradient(top, rgba(169,195,186,1) 0%, rgba(137,179,154,1) 100%);
+  background: -ms-linear-gradient(top, rgba(169,195,186,1) 0%, rgba(137,179,154,1) 100%);
+  background: linear-gradient(to bottom, rgba(169,195,186,1) 0%, rgba(137,179,154,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9c3ba', endColorstr='#89b39a', GradientType=0 );
+
+  z-index: 500;
+  border-bottom: 2px solid #333333;
+
+  @include media-query(large medium small-portrait) { height: 5em; }
+  @include media-query(small-medium) { height: 6.8em; }
+  @include media-query(small) { height: 4.7em; }
+  @include media-query(small-portrait) { height: 5em; }
+  @include media-query(medium-portrait) { height: 7.5em; }
+
+  nav {
+    float: right;
+
+    @include media-query(portrait small small-medium medium-portrait) {
+      float: none;
+      clear: both;
+      height: 50%;
+      width: 100%;
+      @include black-paper;
+      box-shadow: none;
+    }
+    @include media-query(small-medium) {
+      margin: 0;
+      padding: 0;
+      height: 40%;
+    }
+    @include media-query(medium-portrait) {
+      height: 45%;
+    }
+    @include media-query(small) {
+       padding-left: 0.5em;
+    }
+  }
+
+  h1, button {
+    display: inline-block;
+    font-family: "Xerography";
+    margin: 0;
+    padding: 0.5em;
+    @include media-query(small) { padding: 0; }
+  }
+
+  h1 {
+    color: #333333;
+    margin-top: -0.1em;
+    float: left;
+
+    @include media-query(small-medium) {
+      font-size: 1.8em;
+    }
+    @include media-query(small) {
+      margin: 0.1em 0 0 0.2em;
+      font-size: 1.6em;
+    }
+    @include media-query(small-portrait) {
+      margin: 0.1em 0 0.1em 0.3em;
+    }
+  }
+
+  button {
+    font-size: 2em;
+
+    @include media-query(small-medium) {
+      font-size: 1.5em;
+      margin: 0 0 0 1em;
+      padding: 0.3em;
+    }
+    @include media-query(medium-portrait) {
+      font-size: 1.5em;
+      margin: 0.2em 0 0 1em;
+      padding: 0.3em;
+    }
+    @include media-query(small) {
+      font-size: 1.3em;
+      margin: 0.3em 1em 0 0;
+    }
+
+    &:after, &:focus {
+      outline: 0;
+    }
+  }
+}

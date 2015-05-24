@@ -1,0 +1,12 @@
+<div class="content">
+  <div class="details">
+    <img ng-src="{{'assets/imgs/' + work.imgs.thumb}}" alt="{{work.name}}"/>
+    <div class="links" ng-repeat="link in work.links">
+      <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+    </div>
+  </div>
+  <div class="text-content">
+    <p>{{work.description}}</p>
+  </div>
+</div>
+<button ng-click="workDescCtrl.closeDesc()">X</button>
