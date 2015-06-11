@@ -2,11 +2,6 @@ angular.module("site").controller("NavCtrl", ["$location", "$rootScope", "Scroll
 {
     var lastPage = "";
 
-    this.onNavBtnClick = function(section)
-    {
-        $location.path(section);
-    };
-
     // scroll content to selected section when route is one of main page categories (work, profile, contact)
     $rootScope.$on("$routeChangeSuccess", function(event)
     {

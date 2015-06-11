@@ -22,9 +22,9 @@ angular.module("site").factory("Scroll", ["$location", function($location)
 
         if (scrollPos > 0 && scrollPos >= maxScrollPos - 100)
             currentPage = HEATHER.CONTACT_PAGE;
-        else if (scrollPos >= $("#" + HEATHER.PROFILE_PAGE)[0].offsetTop && scrollPos < $("#" + HEATHER.CONTACT_PAGE)[0].offsetTop)
+        else if (scrollPos >= $("#" + HEATHER.PROFILE_PAGE)[0].offsetTop - 100 && scrollPos < $("#" + HEATHER.CONTACT_PAGE)[0].offsetTop)
             currentPage = HEATHER.PROFILE_PAGE;
-        else if (scrollPos >= $("#" + HEATHER.WORK_PAGE)[0].offsetTop && scrollPos < $("#" + HEATHER.PROFILE_PAGE)[0].offsetTop)
+        else if (scrollPos >= $("#" + HEATHER.WORK_PAGE)[0].offsetTop - 100 && scrollPos < $("#" + HEATHER.PROFILE_PAGE)[0].offsetTop - 100)
             currentPage = HEATHER.WORK_PAGE;
         else
             currentPage = "";
@@ -54,8 +54,7 @@ angular.module("site").factory("Scroll", ["$location", function($location)
         newPage = newPage.substring(newPage.indexOf("/") + 1);
 
         // set nav btn to selected state
-        $("header nav button").removeClass("selected");
-        $("." + getCurrentPage() + "Btn").blur();
+        $("header nav a").removeClass("selected");
         $("." + newPage + "Btn").addClass("selected");
 
         // scroll page to start of selected section
@@ -121,9 +120,9 @@ angular.module("site").factory("Scroll", ["$location", function($location)
             window.location.href = basePath + currentPage;
 
             // set nav btn to selected state
-            $("header nav button").removeClass("selected");
-            $("." + lastPage + "Btn").blur();
-            $("." + currentPage + "Btn").addClass("selected");
+            $("header nav a").removeClass("selected");
+            if (currentPage == "") $(".navbar-brand").focus();
+            else $("." + currentPage + "Btn").addClass("selected").focus();
         }
     }
 

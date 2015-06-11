@@ -1,29 +1,13 @@
 @mixin media-query($media-list) {
   @each $media in $media-list {
     @if $media == large {
-      @media (min-width: $medium-width + 1) and (min-height: $medium-height + 1)
-      { @content; }
+      @content;
     }
     @else if $media == medium {
-      @media (min-width: $small-width + 1) and (min-height: $small-height + 1)
-      { @content; }
-    }
-    @else if($media == medium-portrait) {
-      @media (min-width: $small-width + 1) and (min-height: $small-height + 1) and (orientation: portrait)
-      { @content; }
-    }
-    @else if($media == small-medium) {
-      @media (min-width: $small-width + 1) and (max-width: $small-medium-width)
-      { @content; }
+      @media (max-width: $medium-width) { @content; }
     }
     @else if $media == small {
-      @media (max-width: $small-width),
-             (max-height: $small-height) { @content; }
-    }
-    @else if $media == small-portrait {
-      @media (max-width: $small-width) and (orientation: portrait),
-             (max-height: $small-height) and (orientation: portrait)
-      { @content; }
+      @media (max-width: $small-width) { @content; }
     }
     @else if($media == portrait) {
       @media (orientation: portrait) { @content; }

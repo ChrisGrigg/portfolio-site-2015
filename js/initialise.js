@@ -2,6 +2,7 @@ Modernizr.load([
     {
         load: [
             "libs/jquery-1.11.2.min.js",
+            //"//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js",
             "libs/angular.min.js",
             "libs/angular-route.min.js"
         ],

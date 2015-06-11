@@ -9,84 +9,47 @@ header {
   background: linear-gradient(to bottom, rgba(169,195,186,1) 0%, rgba(137,179,154,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9c3ba', endColorstr='#89b39a', GradientType=0 );
 
-  z-index: 500;
-  border-bottom: 2px solid #333333;
+  z-index: 700;
+  border-bottom: 2px solid #333333 !important;
+  padding: 0.5em 0 0.5em 0;
 
-  @include media-query(large medium small-portrait) { height: 5em; }
-  @include media-query(small-medium) { height: 6.8em; }
-  @include media-query(small) { height: 4.7em; }
-  @include media-query(small-portrait) { height: 5em; }
-  @include media-query(medium-portrait) { height: 7.5em; }
-
-  nav {
-    float: right;
-
-    @include media-query(portrait small small-medium medium-portrait) {
-      float: none;
-      clear: both;
-      height: 50%;
-      width: 100%;
-      @include black-paper;
-      box-shadow: none;
-    }
-    @include media-query(small-medium) {
-      margin: 0;
-      padding: 0;
-      height: 40%;
-    }
-    @include media-query(medium-portrait) {
-      height: 45%;
-    }
-    @include media-query(small) {
-       padding-left: 0.5em;
-    }
-  }
-
-  h1, button {
-    display: inline-block;
+  a {
     font-family: "Xerography";
-    margin: 0;
-    padding: 0.5em;
-    @include media-query(small) { padding: 0; }
-  }
+    font-size: 2em !important;
+    margin-right: 0.5em;
 
-  h1 {
-    color: #333333;
-    margin-top: -0.1em;
-    float: left;
-
-    @include media-query(small-medium) {
-      font-size: 1.8em;
-    }
-    @include media-query(small) {
-      margin: 0.1em 0 0 0.2em;
-      font-size: 1.6em;
-    }
-    @include media-query(small-portrait) {
-      margin: 0.1em 0 0.1em 0.3em;
-    }
-  }
-
-  button {
-    font-size: 2em;
-
-    @include media-query(small-medium) {
-      font-size: 1.5em;
-      margin: 0 0 0 1em;
-      padding: 0.3em;
-    }
-    @include media-query(medium-portrait) {
-      font-size: 1.5em;
-      margin: 0.2em 0 0 1em;
-      padding: 0.3em;
-    }
-    @include media-query(small) {
-      font-size: 1.3em;
-      margin: 0.3em 1em 0 0;
+    &.navbar-brand {
+      color: #333 !important;
+      padding: 0.5em 0 0 0;
+      margin: 0 0 0 0.2em;
     }
 
-    &:after, &:focus {
+    &:focus {
       outline: 0;
+    }
+  }
+
+  /** nav goes under header in black bar when screen too small */
+  @include media-query(medium) {
+    padding-bottom: 0;
+    nav {
+      clear: both;
+      width: 100%;
+      margin: 0.5em 0 0 0 !important;
+      @include black-paper;
+      a {
+        font-size: 1.5em !important;
+
+        &:first-of-type {
+          margin-left: 1em;
+        }
+      }
+    }
+  }
+
+  @include media-query(small) {
+    nav a:first-of-type {
+      margin-left: 0.5em;
     }
   }
 }

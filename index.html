@@ -7,75 +7,81 @@
   <title>Heather Roberts</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png"/>
   <link rel="icon" href="favicon.png" type="image/png" sizes="16x16"/>
-  <link rel="stylesheet" href="libs/foundation-5.5.1/css/normalize.css"/>
-  <link rel="stylesheet" href="libs/foundation-5.5.1/css/foundation.css"/>
+  <link rel="stylesheet" href="libs/bootstrap-3.3.4-dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/app.css"/>
-  <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
 
-  <div id="preloader">
-    <div class="content">
-      <h2>Loading</h2>
-      <img src="assets/imgs/ball-triangle.svg" width="50" alt="loader">
+  <div class="site-container">
+    <div id="preloader">
+      <div class="content">
+        <h2>Loading</h2>
+        <img src="assets/imgs/ball-triangle.svg" width="50" alt="loader">
+      </div>
     </div>
-  </div>
 
-  <div id="site">
-    <flowers pos="left"></flowers>
-    <flowers pos="right"></flowers>
+    <div id="site">
+      <flowers pos="left"></flowers>
+      <flowers pos="right"></flowers>
 
-    <div id="mainContent">
-      <header ng-controller="NavCtrl as navCtrl">
-        <h1>Heather Roberts</h1>
-        <nav>
-          <button class="workBtn blueBtn" ng-click="navCtrl.onNavBtnClick('work')">Work</button>
-          <button class="profileBtn purpleBtn" ng-click="navCtrl.onNavBtnClick('profile')">Profile</button>
-          <button class="contactBtn greenBtn" ng-click="navCtrl.onNavBtnClick('contact')">Contact</button>
-        </nav>
-      </header>
-
-      <div id="content">
-
-        <br>
-
-        <section id="intro" ng-controller="IntroCtrl as introCtrl">
-          <paper title="Intro" content="{{introCtrl.intro}}" colour="white"></paper>
-        </section>
-
-        <lace-ribbons ribbons="style1"></lace-ribbons>
-
-        <section id="work" ng-controller="WorkController as workCtrl">
-          <h2>Work</h2>
-          <div>
-            <work-item ng-repeat="work in workCtrl.workItems" work="work"></work-item>
+      <div id="mainContent">
+        <header ng-controller="NavCtrl" class="navbar navbar-fixed-top">
+          <div class="navbar-header">
+            <a href="#/" class="navbar-brand">Heather Roberts</a>
           </div>
-          <div class="workItemDesc">
-            <div ng-view></div>
-          </div>
-        </section>
+          <nav class="nav navbar-nav navbar-right">
+            <a href="#/work" class="workBtn blueBtn">Work</a>
+            <a href="#/profile" class="profileBtn purpleBtn">Profile</a>
+            <a href="#/contact" class="contactBtn greenBtn">Contact</a>
+          </nav>
+        </header>
 
-        <lace-ribbons ribbons="style2"></lace-ribbons>
+        <div id="content">
 
-        <section id="profile" ng-controller="ProfileCtrl as profileCtrl">
-          <paper title="Profile" content="{{profileCtrl.profile}}" colour="purple"></paper>
-          <div class="buttonContainer">
-            <button class="blueBtn" ng-click="profileCtrl.onViewCV()">View CV</button>
-          </div>
-        </section>
+          <br>
 
-        <lace-ribbons ribbons="style3">
-          <img src="assets/imgs/green-bow.png" alt="bow">
-        </lace-ribbons>
+          <section id="intro" class="container-fluid" ng-controller="IntroCtrl as introCtrl">
+            <paper title="Intro" content="{{introCtrl.intro}}" colour="white"></paper>
+          </section>
 
-        <section id="contact">
-          <paper title="Contact Me" colour="green">
-            <a href="mailto:heatherroberts@live.com" target="_top">heatherroberts@live.com</a>
-            <a href="https://au.linkedin.com/in/heather427" target="_blank">
-              <img src="assets/imgs/linkedin-logo.png" alt="LinkedIn">
-            </a>
-          </paper>
-        </section>
+          <lace-ribbons ribbons="style1"></lace-ribbons>
+
+          <section id="work" class="container" ng-controller="WorkController as workCtrl">
+            <h2>Work</h2>
+            <div>
+              <work-item ng-repeat="work in workCtrl.workItems" work="work"></work-item>
+            </div>
+            <div class="workItemDesc">
+              <div ng-view></div>
+            </div>
+          </section>
+
+          <lace-ribbons ribbons="style2"></lace-ribbons>
+
+          <section id="profile" class="container-fluid" ng-controller="ProfileCtrl as profileCtrl">
+            <paper title="Profile" content="{{profileCtrl.profile}}" colour="purple"></paper>
+            <div class="buttonContainer col-md-offset-1">
+              <button class="blueBtn" ng-click="profileCtrl.onViewCV()">View CV</button>
+            </div>
+          </section>
+
+          <lace-ribbons ribbons="style3">
+            <img src="assets/imgs/green-bow.png" alt="bow">
+          </lace-ribbons>
+
+          <section id="contact" class="container-fluid">
+            <paper title="Contact Me" colour="green">
+              <div class="row">
+                <a class="col-sm-6 col-xs-12" href="mailto:heatherroberts@live.com" target="_top">
+                  <i class="glyphicon glyphicon-envelope"></i> heatherroberts@live.com
+                </a>
+                <a class="col-sm-6 col-xs-12" href="https://au.linkedin.com/in/heather427" target="_blank">
+                  <img src="assets/imgs/linkedin-logo.png" alt="Link to LinkedIn">
+                </a>
+              </div>
+            </paper>
+          </section>
+        </div>
       </div>
     </div>
   </div>

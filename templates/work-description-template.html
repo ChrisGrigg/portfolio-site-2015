@@ -1,12 +1,19 @@
-<div class="content">
-  <div class="details">
-    <img ng-src="{{'assets/imgs/' + work.imgs.thumb}}" alt="{{work.name}}"/>
-    <div class="links" ng-repeat="link in work.links">
-      <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+<div class="wrapper">
+  <div class="content col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <button ng-click="workDescCtrl.closeDesc()" class="pull-right">X</button>
+    </div>
+    <div class="row">
+      <div class="details col-sm-3">
+        <img ng-src="{{'assets/imgs/' + work.imgs.thumb}}" alt="{{work.name}}" class="hidden-xs"/>
+        <h4 class="visible-xs">{{work.name}}</h4>
+        <div class="links" ng-repeat="link in work.links">
+          <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+        </div>
+      </div>
+      <div class="text-content col-sm-9">
+        <p>{{work.description}}</p>
+      </div>
     </div>
   </div>
-  <div class="text-content">
-    <p>{{work.description}}</p>
-  </div>
 </div>
-<button ng-click="workDescCtrl.closeDesc()">X</button>

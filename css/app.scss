@@ -1,55 +1,11 @@
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 7px;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0,0,0,.5);
-  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
-
-body {
-  background-color: #e9b8e9;
-  background: -moz-linear-gradient(top,  #e9b8e9 51%, #d998b9 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(51%,#e9b8e9), color-stop(100%,#d998b9)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #e9b8e9 51%,#d998b9 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #e9b8e9 51%,#d998b9 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #e9b8e9 51%,#d998b9 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #e9b8e9 51%,#d998b9 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9b8e9', endColorstr='#d998b9',GradientType=0 ); /* IE6-9 */
-
-  width: 100%;
-  height: 100%;
-  font-family: "Eager Naturalist";
-  overflow: hidden;
-  color: #333333;
-}
-
-h1, h2, h3 {
-  font-family: "Xerography";
-}
-
-a {
-  font-size: 1em;
-  color: #b0e0e6 !important;
-
-  &:hover {
-    color: #80b0b6 !important;
-  }
-}
-
-p {
-  font-size: 1em;
-  font-weight: normal;
-}
-
-button {
-  border-style: none !important;
-  background-color: transparent !important;
-
-  &:hover, &:focus {
-    border-style: none !important;
-    background-color: transparent !important;
-    outline: 0 !important;
-  }
-}
+@import 'partials/variables';
+@import 'partials/crossbrowser';
+@import 'partials/mixins';
+@import 'partials/fonts';
+@import 'partials/basics';
+@import 'partials/preloader';
+@import 'partials/header';
+@import 'partials/intro';
+@import 'partials/work';
+@import 'partials/profile';
+@import 'partials/contact';
