@@ -1,4 +1,4 @@
-angular.module("site").directive("laceRibbons", function()
+angular.module("site").directive("hmrLaceRibbons", function()
 {
     return {
         restrict: "E",

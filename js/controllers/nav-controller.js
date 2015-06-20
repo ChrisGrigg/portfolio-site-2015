@@ -1,4 +1,5 @@
-angular.module("site").controller("NavCtrl", ["$location", "$rootScope", "Scroll", function($location, $rootScope, Scroll)
+angular.module("site").controller("NavCtrl", ["$location", "$rootScope", "$timeout", "Scroll", "PAGES",
+    function($location, $rootScope, $timeout, Scroll, PAGES)
 {
     var lastPage = "";
 
@@ -10,18 +11,18 @@ angular.module("site").controller("NavCtrl", ["$location", "$rootScope", "Scroll
         var currentPage = Scroll.getCurrentPage();
 
         // returning from work desc needs bg removed
-        if (lastPage !== currentPage && lastPage.indexOf(HEATHER.WORK_PAGE) !== -1 && currentPage.indexOf(HEATHER.WORK_PAGE) !== -1)
+        if (lastPage !== currentPage && lastPage.indexOf(PAGES.WORK) !== -1 && currentPage.indexOf(PAGES.WORK) !== -1)
         {
             $(".workItemDesc").removeClass("fade-in").addClass("fade-out");
-            setTimeout(function(){$(".workItemDesc").removeClass("fade-out").hide();}, 500);
+            $timeout(function(){$(".workItemDesc").removeClass("fade-out").hide();}, 500);
         }
 
         if (path !== currentPage)
         {
             console.log("route change from " + currentPage + " to " + path);
 
-            if (path == "") path = HEATHER.INTRO_PAGE;
-            if (path === HEATHER.INTRO_PAGE || path === HEATHER.WORK_PAGE || path === HEATHER.PROFILE_PAGE || path === HEATHER.CONTACT_PAGE)
+            if (path == "") path = PAGES.INTRO;
+            if (path === PAGES.INTRO || path === PAGES.WORK || path === PAGES.PROFILE || path === PAGES.CONTACT)
             {
                 Scroll.setCurrentPage(path);
             }

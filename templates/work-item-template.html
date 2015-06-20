@@ -1,8 +1,8 @@
 <div class="workItem" ng-click="loadWorkDesc(work)">
   <div class="workItemMain">
     <img ng-src="{{'assets/imgs/' + work.imgs.thumb}}" alt="{{work.name}}"/>
-    <h3>{{work.name}}</h3>
-    <p>{{work.tag}}</p>
+    <h3 ng-bind="work.name"></h3>
+    <p ng-bind="work.tag"></p>
     <a ng-href="#/work/{{work.id}}">Click for more...</a>
   </div>
 </div>

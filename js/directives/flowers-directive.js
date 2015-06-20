@@ -1,4 +1,4 @@
-angular.module("site").directive("flowers", function()
+angular.module("site").directive("hmrFlowers", function()
 {
    return {
        restrict: "E",

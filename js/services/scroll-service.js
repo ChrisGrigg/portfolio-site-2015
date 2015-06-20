@@ -1,4 +1,5 @@
-angular.module("site").factory("Scroll", ["$location", function($location)
+angular.module("site").factory("Scroll", ["$location", "$timeout", "PAGES",
+    function($location, $timeout, PAGES)
 {
     var scrollObj = {},
         basePath = window.location.href;
@@ -21,11 +22,11 @@ angular.module("site").factory("Scroll", ["$location", function($location)
         //console.log("scrollPos " + scrollPos + " maxScrollPos " + maxScrollPos);
 
         if (scrollPos > 0 && scrollPos >= maxScrollPos - 100)
-            currentPage = HEATHER.CONTACT_PAGE;
-        else if (scrollPos >= $("#" + HEATHER.PROFILE_PAGE)[0].offsetTop - 100 && scrollPos < $("#" + HEATHER.CONTACT_PAGE)[0].offsetTop)
-            currentPage = HEATHER.PROFILE_PAGE;
-        else if (scrollPos >= $("#" + HEATHER.WORK_PAGE)[0].offsetTop - 100 && scrollPos < $("#" + HEATHER.PROFILE_PAGE)[0].offsetTop - 100)
-            currentPage = HEATHER.WORK_PAGE;
+            currentPage = PAGES.CONTACT;
+        else if (scrollPos >= $("#" + PAGES.PROFILE)[0].offsetTop - 100 && scrollPos < $("#" + PAGES.CONTACT)[0].offsetTop)
+            currentPage = PAGES.PROFILE;
+        else if (scrollPos >= $("#" + PAGES.WORK)[0].offsetTop - 100 && scrollPos < $("#" + PAGES.PROFILE)[0].offsetTop - 100)
+            currentPage = PAGES.WORK;
         else
             currentPage = "";
 
@@ -40,10 +41,13 @@ angular.module("site").factory("Scroll", ["$location", function($location)
         var selectedSection = $("#" + page)[0];
 
         // if loaded site with route set ie. www.heather-roberts.net/work, there won't be a value for offsetParent yet
-        if (selectedSection.offsetParent)
-            scrollToPage(selectedSection);
-        else
-            setTimeout(scrollToPage, 1000, selectedSection);
+        if (selectedSection)
+        {
+            if (selectedSection.offsetParent)
+                scrollToPage(selectedSection);
+            else
+                $timeout(scrollToPage, 1000, true, selectedSection);
+        }
     }
 
     /* Private functions */
@@ -63,7 +67,7 @@ angular.module("site").factory("Scroll", ["$location", function($location)
         var contentOffset = $("#content")[0].offsetTop;
 
         var scrollPos;
-        if (selectedSection.id === HEATHER.INTRO_PAGE) scrollPos = 0;
+        if (selectedSection.id === PAGES.INTRO) scrollPos = 0;
         else scrollPos = selectedSection.offsetTop - contentOffset - offsetParent;
         var maxScrollPos = $("#content")[0].scrollHeight - $("#content")[0].clientHeight;
         scrollPos = Math.min(scrollPos, maxScrollPos);
@@ -71,7 +75,7 @@ angular.module("site").factory("Scroll", ["$location", function($location)
         scrollTo($("#content")[0], scrollPos, 750,
             function()
             {
-                setTimeout(function(){$("#content").on("scroll", contentScrollHandler)}, 200);
+                $timeout(function(){$("#content").on("scroll", contentScrollHandler)}, 200);
             });
     }
 

@@ -21,8 +21,8 @@
     </div>
 
     <div id="site">
-      <flowers pos="left"></flowers>
-      <flowers pos="right"></flowers>
+      <hmr-flowers pos="left"></hmr-flowers>
+      <hmr-flowers pos="right"></hmr-flowers>
 
       <div id="mainContent">
         <header ng-controller="NavCtrl" class="navbar navbar-fixed-top">
@@ -41,36 +41,40 @@
           <br>
 
           <section id="intro" class="container-fluid" ng-controller="IntroCtrl as introCtrl">
-            <paper title="Intro" content="{{introCtrl.intro}}" colour="white"></paper>
+            <hmr-paper title="Intro" content="{{introCtrl.intro}}" colour="white"></hmr-paper>
           </section>
 
-          <lace-ribbons ribbons="style1"></lace-ribbons>
+          <hmr-lace-ribbons ribbons="style1"></hmr-lace-ribbons>
 
           <section id="work" class="container" ng-controller="WorkController as workCtrl">
             <h2>Work</h2>
             <div>
-              <work-item ng-repeat="work in workCtrl.workItems" work="work"></work-item>
+              <hmr-work-item ng-repeat="work in workCtrl.workItems" work="work"></hmr-work-item>
             </div>
             <div class="workItemDesc">
               <div ng-view></div>
             </div>
           </section>
 
-          <lace-ribbons ribbons="style2"></lace-ribbons>
+          <hmr-lace-ribbons ribbons="style2"></hmr-lace-ribbons>
 
           <section id="profile" class="container-fluid" ng-controller="ProfileCtrl as profileCtrl">
-            <paper title="Profile" content="{{profileCtrl.profile}}" colour="purple"></paper>
-            <div class="buttonContainer col-md-offset-1">
-              <button class="blueBtn" ng-click="profileCtrl.onViewCV()">View CV</button>
+            <div class="row">
+              <hmr-paper title="Profile" content="{{profileCtrl.profile}}" colour="purple"></hmr-paper>
+            </div>
+            <div class="row">
+              <div class="buttonContainer col-md-offset-1">
+                <button class="blueBtn" ng-click="profileCtrl.onViewCV()">View CV</button>
+              </div>
             </div>
           </section>
 
-          <lace-ribbons ribbons="style3">
+          <hmr-lace-ribbons ribbons="style3">
             <img src="assets/imgs/green-bow.png" alt="bow">
-          </lace-ribbons>
+          </hmr-lace-ribbons>
 
           <section id="contact" class="container-fluid">
-            <paper title="Contact Me" colour="green">
+            <hmr-paper title="Contact Me" colour="green">
               <div class="row">
                 <a class="col-sm-6 col-xs-12" href="mailto:heatherroberts@live.com" target="_top">
                   <i class="glyphicon glyphicon-envelope"></i> heatherroberts@live.com
@@ -79,7 +83,7 @@
                   <img src="assets/imgs/linkedin-logo.png" alt="Link to LinkedIn">
                 </a>
               </div>
-            </paper>
+            </hmr-paper>
           </section>
         </div>
       </div>

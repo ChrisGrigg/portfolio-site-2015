@@ -2,8 +2,8 @@ Modernizr.load([
     {
         load: [
             "libs/jquery-1.11.2.min.js",
-            //"//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js",
-            "libs/angular.min.js",
+            //"//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js",
+            "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js",
             "libs/angular-route.min.js"
         ],
         complete: function()
@@ -13,9 +13,9 @@ Modernizr.load([
     },
     {
         load: [
-            "js/constants.js",
+            //"js/site.js"
+
             "js/app.js",
-            "js/routes.js",
             "js/services/work-service.js",
             "js/services/scroll-service.js",
             "js/controllers/intro-controller.js",
@@ -36,11 +36,8 @@ Modernizr.load([
                 angular.bootstrap(document, ['site']);
             });
 
-            setTimeout(function()
-            {
-                $("#preloader").hide();
-                $("#site").show();
-            }, 500);
+            $("#preloader").hide();
+            $("#site").show();
         }
     }
 ]);

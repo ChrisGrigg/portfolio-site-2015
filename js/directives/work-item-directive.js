@@ -1,4 +1,4 @@
-angular.module("site").directive("workItem", function()
+angular.module("site").directive("hmrWorkItem", function(PAGES)
 {
     return {
         restrict: "E",
@@ -10,7 +10,7 @@ angular.module("site").directive("workItem", function()
         {
             $scope.loadWorkDesc = function(work)
             {
-                $location.path("/" + HEATHER.WORK_PAGE + "/" + work.id);
+                $location.path("/" + PAGES.WORK + "/" + work.id);
             };
         }
     };

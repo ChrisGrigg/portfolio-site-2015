@@ -1,5 +1,5 @@
-angular.module("site").controller("WorkDescriptionController", ["$routeParams", "$scope", "$location", "Work",
-    function($routeParams, $scope, $location, Work)
+angular.module("site").controller("WorkDescriptionController", ["$routeParams", "$scope", "$location", "$timeout", "Work", "PAGES",
+    function($routeParams, $scope, $location, $timeout, Work, PAGES)
     {
         var that = this;
         var work_id = $routeParams.id;
@@ -9,7 +9,7 @@ angular.module("site").controller("WorkDescriptionController", ["$routeParams", 
         $(".workItemDesc").show().addClass("fade-in");
 
         // mouse down outside closes description popup
-        setTimeout(function()
+        $timeout(function()
         {
             $(document).click(function(event)
             {
@@ -38,7 +38,7 @@ angular.module("site").controller("WorkDescriptionController", ["$routeParams", 
         this.closeDesc = function()
         {
             $(".workItemDesc").removeClass("fade-in").addClass("fade-out");
-            setTimeout(function(){$(".workItemDesc").removeClass("fade-out").hide();}, 500);
-            $location.path(HEATHER.WORK_PAGE);
+            $timeout(function(){$(".workItemDesc").removeClass("fade-out").hide();}, 500);
+            $location.path(PAGES.WORK);
         };
     }]);

@@ -1,4 +1,4 @@
-angular.module("site").directive("paper", function()
+angular.module("site").directive("hmrPaper", function()
 {
     return {
         restrict: "E",

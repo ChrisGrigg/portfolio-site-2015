@@ -299,6 +299,7 @@ header {
         left: 0; }
   #work .workItemDesc {
     position: absolute;
+    display: none;
     left: 0;
     top: 0;
     width: 100%;
@@ -394,15 +395,13 @@ header {
   padding: 0.2em 1em; }
 #profile h2 {
   color: #ffffff; }
-#profile .buttonContainer button {
-  display: inline-block;
-  font-family: "Xerography";
-  font-size: 2em;
-  line-height: 1.5em;
-  background-color: #ffffff !important;
-  padding: -0.4em 0;
-  margin-top: 1em;
-  box-shadow: 3px 3px 3px #666666; }
+#profile .buttonContainer {
+  padding-top: 0.5em; }
+  #profile .buttonContainer button {
+    box-shadow: 3px 3px 3px #666666;
+    font-family: "Xerography";
+    font-size: 2em;
+    background-color: #fff !important; }
 
 #contact {
   margin-bottom: 5em; }
