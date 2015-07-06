@@ -24,6 +24,3 @@ angular.module("site", ["ngRoute"])
             })
             .otherwise({ redirectTo: "/" });
     });
-
-
-
