@@ -10,93 +10,82 @@ var concat = require("gulp-concat"),
     stripDebug = require("gulp-strip-debug"),
     htmlmin = require("gulp-htmlmin"),
     newer = require("gulp-newer"),
-    connect = require("gulp-connect-multi")();
+    connect = require("gulp-connect-multi")(),
+    rimraf = require("gulp-rimraf");
 
+var paths = {
+    all_js: "js/**.js",
+    js: ["js/app.js", "js/*/*.js"],
+    scss: "css/app.scss",
+    html: ["index.html", "templates/**/*.html"],
+    init: "js/initialise.js",
+    libs: "libs/**",
+    json: "json/**",
+    favicon: "favicon*.png",
+    assets: ["assets/imgs/**", "assets/fonts/**", "assets/pdfs/**"],
+    root: __dirname,
+    dest: "www",
+    dest_js: "www/js",
+    dest_css: "www/css",
+    dest_assets: "www/assets"
+};
 
 
 // check code quality
 gulp.task("lint", function() {
-    return gulp.src("js/**.js")
+    return gulp.src(paths.all_js)
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
 
 // strip debug statements, concatenate & minify js
 gulp.task("scripts", function() {
-    return gulp.src(["js/app.js", "js/*/*.js"])
+    return gulp.src(paths.js)
         .pipe(stripDebug())
         .pipe(concat("site.js"))
-        .pipe(rename({suffix: ".min"}))
         .pipe(uglify({mangle: false}))
-        .pipe(gulp.dest("www/js"))
+        .pipe(rename({suffix: ".min"}))
+        .pipe(gulp.dest(paths.dest_js))
+        .pipe(connect.reload());
+});
+gulp.task("copy-scripts", function() {
+    return gulp.src(paths.init)
+        .pipe(gulp.dest(paths.dest_js))
         .pipe(connect.reload());
 });
 
 // compile sass
 gulp.task("sass", function() {
-    return gulp.src("css/app.scss")
+    return gulp.src(paths.scss)
         .pipe(sass({outputStyle: "compressed"}))
         .pipe(rename({suffix: ".min"}))
-        .pipe(gulp.dest("www/css"))
+        .pipe(gulp.dest(paths.dest_css))
         .pipe(connect.reload());
 });
 
-// copy files to www directory
-gulp.task("copy-index", function() {
-    return gulp.src("index.html")
+// minify html & copy over
+gulp.task("html", function() {
+    return gulp.src(paths.html, {base: paths.root})
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest("www"))
+        .pipe(gulp.dest(paths.dest))
         .pipe(connect.reload());
 });
-gulp.task("copy-templates", function() {
-    return gulp.src("templates/**/*.html")
-        .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest("www/templates"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-scripts", function() {
-    return gulp.src("js/initialise.js")
-        .pipe(gulp.dest("www/js"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-libs", function() {
-    return gulp.src("libs/**")
-        .pipe(newer("www/libs"))
-        .pipe(gulp.dest("www/libs"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-assets", function() {
-    return gulp.src("assets/imgs/**")
-        .pipe(newer("www/assets/imgs"))
-        .pipe(gulp.dest("www/assets/imgs"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-fonts", function() {
-    return gulp.src("assets/fonts/**")
-        .pipe(newer("www/assets/fonts"))
-        .pipe(gulp.dest("www/assets/fonts"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-pdfs", function() {
-    return gulp.src("assets/pdfs/**")
-        .pipe(newer("www/assets/pdfs"))
-        .pipe(gulp.dest("www/assets/pdfs"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-json", function() {
-    return gulp.src("json/**")
-        .pipe(newer("www/json"))
-        .pipe(gulp.dest("www/json"))
-        .pipe(connect.reload());
-});
-gulp.task("copy-favicon", function() {
-    return gulp.src("favicon*.png")
-        .pipe(newer("www"))
-        .pipe(gulp.dest("www"));
-});
-gulp.task("copy", ["copy-index", "copy-templates", "copy-scripts", "copy-libs", "copy-assets", "copy-fonts", "copy-pdfs", "copy-json", "copy-favicon"]);
-gulp.task("build", ["lint", "scripts", "sass", "copy"]);
 
+gulp.task("copy", function() {
+    return gulp.src([paths.libs, paths.json, paths.favicon], {base: paths.root})
+        .pipe(newer(paths.dest))
+        .pipe(gulp.dest(paths.dest))
+        .pipe(connect.reload());
+});
+
+gulp.task("assets", function() {
+    return gulp.src(paths.assets, {base: "assets"})
+        .pipe(newer(paths.dest_assets))
+        .pipe(gulp.dest(paths.dest_assets))
+        .pipe(connect.reload());
+});
+
+gulp.task("build", ["lint", "scripts", "copy-scripts", "sass", "html", "copy", "assets"]);
 
 gulp.task("connect", connect.server({
     root: ["www"],
@@ -107,21 +96,21 @@ gulp.task("connect", connect.server({
     }
 }));
 
-
 // watch for changes
 gulp.task("watch", function() {
-    gulp.watch(["js/app.js", "js/*/*.js"], ["lint", "scripts"]);
-    gulp.watch("css/**.scss", ["sass"]);
-    gulp.watch("index.html", ["copy-index"]);
-    gulp.watch("templates/**/*.html", ["copy-templates"]);
-    gulp.watch("js/initialise.js", ["copy-scripts"]);
-    gulp.watch("libs/**", ["copy-libs"]);
-    gulp.watch("assets/imgs/**", ["copy-assets"]);
-    gulp.watch("assets/fonts/**", ["copy-fonts"]);
-    gulp.watch("assets/pds/**", ["copy-pdfs"]);
-    gulp.watch("json/**", ["copy-json"]);
+    gulp.watch(paths.all_js, ["lint", "scripts"]);
+    gulp.watch(paths.scss, ["sass"]);
+    gulp.watch(paths.html, ["html"]);
+    gulp.watch(paths.init, ["copy-scripts"]);
+    gulp.watch([paths.libs, paths.json, paths.favicon], ["copy"]);
+    gulp.watch(paths.assets, ["assets"]);
 });
 
+// empty destination directory
+gulp.task("clean", function() {
+    gulp.src(paths.dest)
+        .pipe(rimraf());
+});
 
 // Default Task
 gulp.task("default", ["build", "connect", "watch"]);
