@@ -1,0 +1,21 @@
+{
+  "name": "Heather Roberts' site",
+  "version": "1.4.0",
+  "homepage": "https://github.com/chinchiheather/portfolio-site-2015",
+  "authors": [
+    "Heather Roberts <https://github.com/chinchiheather>"
+  ],
+  "description": "My portfolio website",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "angular-route": "~1.4.3"
+  }
+}

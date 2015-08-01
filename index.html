@@ -7,7 +7,7 @@
   <title>Heather Roberts</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png"/>
   <link rel="icon" href="favicon.png" type="image/png" sizes="16x16"/>
-  <link rel="stylesheet" href="libs/bootstrap-3.3.4-dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/libs.css"/>
   <link rel="stylesheet" href="css/app.min.css"/>
 </head>
 <body>
@@ -90,7 +90,18 @@
     </div>
   </div>
 
-  <script src="libs/modernizr.js"></script>
-  <script src="js/initialise.js"></script>
+  <!--<script src="libs/modernizr.js"></script>-->
+  <script src="js/libs.min.js"></script>
+  <script src="js/site.min.js"></script>
+  <script defer>
+    angular.element(document).ready(function() {
+      console.log("initialise angular");
+      angular.bootstrap(document, ['site']);
+      setTimeout(function(){
+        $("#preloader").hide();
+        $("#site").show();
+      }, 100);
+    });
+  </script>
 </body>
 </html>
