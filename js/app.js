@@ -2,7 +2,7 @@
  * Created by Heather Roberts on 13/03/2015
  */
 
-angular.module("site", ["ngRoute"])
+angular.module("site", ["ngRoute", "ngMock"])
     .constant("PAGES", {
         INTRO: "intro",
         WORK: "work",

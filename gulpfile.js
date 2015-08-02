@@ -15,7 +15,8 @@ var concat = require("gulp-concat"),
     browserify = require("browserify"),
     source = require("vinyl-source-stream"),
     streamify = require("gulp-streamify"),
-    gutil = require("gulp-util");
+    gutil = require("gulp-util"),
+    karmaServer = require("karma").Server;
 
 var paths = {
     all_js: "js/**.js",
@@ -144,6 +145,13 @@ gulp.task("watch", function() {
 gulp.task("clean", function() {
     gulp.src(paths.dest)
         .pipe(rimraf());
+});
+
+gulp.task("test", function(done) {
+   new karmaServer({
+       configFile: paths.root + "/karma.conf.js"/*,
+       singleRun: true*/
+   }, done).start();
 });
 
 // Default Task
