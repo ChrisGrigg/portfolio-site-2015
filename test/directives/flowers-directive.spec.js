@@ -19,12 +19,14 @@ describe("hmrFlowers", function() {
     it("should have class background-flowers", function() {
         var elClassName = element.find("div")[0].className;
         var classes = elClassName.split(/\s+/g);
+
         expect(classes).toContain("background-flowers");
     });
 
     it ("should add value passed in as 'pos' attribute as a class", function() {
         var elClassName = element.find("div")[0].className;
         var classes = elClassName.split(/\s+/g);
+
         expect(classes).toContain("left");
     });
 });

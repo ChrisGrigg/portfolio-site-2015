@@ -39,33 +39,13 @@ module.exports = function(config) {
     preprocessors: {
       "templates/**.html": ["ng-html2js"]
     },
-
-    ngHtml2JsPreprocessor: {
-      // strip this from the file path
-      //stripPrefix: 'public/',
-      //stripSuffix: '.ext',
-      //// prepend this to the
-      //prependPrefix: 'served/',
-      //
-      //// or define a custom transform function
-      //cacheIdFromPath: function(filepath) {
-      //  return cacheId;
-      //},
-      //
-      //// - setting this option will create only a single module that contains templates
-      ////   from all the files, so you can load them all with module('foo')
-      //// - you may provide a function(htmlPath, originalPath) instead of a string
-      ////   if you'd like to generate modules dynamically
-      ////   htmlPath is a originalPath stripped and/or prepended
-      ////   with all provided suffixes and prefixes
-      //moduleName: 'foo'
-    },
+    ngHtml2JsPreprocessor: {},
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ["progress"],
+    reporters: ["dots"],
 
 
     // web server port
@@ -87,11 +67,19 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [/*"Chrome"*/, "PhantomJS"],
+    browsers: [
+      //"Chrome"
+      "PhantomJS"
+    ],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    // don't output console logs, warns, errors
+    client: {
+      captureConsole: false
+    }
   })
 }
